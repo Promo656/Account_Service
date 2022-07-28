@@ -1,4 +1,4 @@
-package account;
+package account.Servises;
 
 import account.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

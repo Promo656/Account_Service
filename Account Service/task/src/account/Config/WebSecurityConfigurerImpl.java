@@ -1,6 +1,7 @@
-package account;
+package account.Config;
 
 import account.Entity.Roles;
+import account.Servises.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,7 +25,7 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers("/api/empl/payment").hasAnyAuthority(Roles.USER.name())
                 .mvcMatchers("/api/empl/payment").hasAnyAuthority(Roles.ACCOUNTANT.name())
-
+                .mvcMatchers("/api/auth/changepass").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .csrf().disable().headers().frameOptions().disable()
